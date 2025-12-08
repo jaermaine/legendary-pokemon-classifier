@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legendary Pokémon Classifier - ML-Powered Prediction</title>
+  <link rel="icon" type="image/png" href="legendary_favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  
+  <!-- Meta tags for sharing -->
+  <meta name="description" content="AI-powered Pokémon Legendary Classifier using Machine Learning. Predict legendary status based on base stats with 95%+ accuracy." />
+  <meta property="og:title" content="Legendary Pokémon Classifier" />
+  <meta property="og:description" content="ML-powered prediction with SHAP explanations and interactive visualizations" />
+  <meta property="og:type" content="website" />
+</head>
+<body>
+  <!-- Sticky Navigation Bar (initially hidden) -->
+  <nav id="stickyNav" class="sticky-nav" data-section="navigation">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="images/logo/pokeball_logo.png" alt="Pokéball" class="nav-logo" />
+        <span class="nav-title">Pokémon Classifier</span>
+      </div>
+      <div class="nav-links">
+        <a href="#landing" class="nav-link active" data-scroll="landing">About</a>
+        <a href="#dashboard" class="nav-link" data-scroll="dashboard">Dashboard</a>
+        <a href="https://github.com/jaermaine" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Landing Section -->
+  <section id="landing" class="landing-section" data-section="landing">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-heading">Predict Legendary Pokémon with AI</h1>
+        <p class="hero-subheading">Machine learning model trained on 700+ Pokémon</p>
+        <button class="cta-button hero-cta" data-scroll="dashboard">Start Predicting ↓</button>
+        <div class="scroll-indicator">
+          <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-background">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+      </div>
+    </section>
+
+    <!-- Features Showcase Section -->
+    <section class="features-section">
+      <div class="section-container">
+        <h2 class="section-title">Why Choose Our Classifier?</h2>
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>94% Accuracy</h3>
+            <p>Trained on extensive Pokémon dataset with validated performance metrics</p>
+          </div>
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Explainable AI</h3>
+            <p>SHAP visualizations show exactly which stats influence predictions</p>
+          </div>
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Real-Time Insights</h3>
+            <p>Instant predictions with detailed stat breakdowns and comparisons</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+      <div class="section-container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="step-number">1</div>
+            <div class="step-icon">📝</div>
+            <h3>Input Stats</h3>
+            <p>Enter your Pokémon's base stats (HP, Attack, Defense, etc.)</p>
+          </div>
+          <div class="timeline-step">
+            <div class="step-number">2</div>
+            <div class="step-icon">🤖</div>
+            <h3>AI Analyzes</h3>
+            <p>Our trained model analyzes stat patterns instantly</p>
+          </div>
+          <div class="timeline-step">
+            <div class="step-number">3</div>
+            <div class="step-icon">🏆</div>
+            <h3>Get Results</h3>
+            <p>Receive probability and detailed explanations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Model Stats Section -->
+    <section class="stats-section">
+      <div class="section-container">
+        <h2 class="section-title">Model Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" data-target="1254">0</div>
+            <div class="stat-label">Training Samples</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-target="94.12">0</div>
+            <div class="stat-label">Accuracy %</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" data-target="6">0</div>
+            <div class="stat-label">Features Analyzed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value counter-dynamic" id="predictionsCounter">0</div>
+            <div class="stat-label">Predictions Made</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="tech-stack-section">
+      <div class="section-container">
+        <h2 class="section-title">Technology Stack</h2>
+        <div class="tech-badges">
+          <div class="tech-badge">
+            <span class="badge-icon">🐍</span>
+            <span class="badge-text">Python</span>
+          </div>
+          <div class="tech-badge">
+            <span class="badge-icon">⚙️</span>
+            <span class="badge-text">FastAPI</span>
+          </div>
+          <div class="tech-badge">
+            <span class="badge-icon">🌲</span>
+            <span class="badge-text">scikit-learn</span>
+          </div>
+          <div class="tech-badge">
+            <span class="badge-icon">🚀</span>
+            <span class="badge-text">RandomForest</span>
+          </div>
+          <div class="tech-badge">
+            <span class="badge-icon">📊</span>
+            <span class="badge-text">SHAP</span>
+          </div>
+          <div class="tech-badge">
+            <span class="badge-icon">📈</span>
+            <span class="badge-text">Chart.js</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Repeat Section -->
+    <section class="cta-section">
+      <div class="section-container">
+        <h2 class="cta-title">Ready to Classify?</h2>
+        <p class="cta-subtitle">Start making predictions and explore your Pokémon's legendary potential</p>
+        <button class="cta-button cta-large" data-scroll="dashboard">Try the Classifier Now ↓</button>
+      </div>
+    </section>
+  </section>
+
+  <!-- Dashboard Section (starts here) -->
+  <div class="app-shell" id="dashboard" class="dashboard-section" data-section="dashboard">
+    <div class="dashboard-wrapper">
+    <!-- ---------- HEADER ---------- -->
+    <header>
+      <img src="images/logo/pokeball_logo.png" alt="Pokéball" class="pokeball-icon" />
+      <div class="title-block">
+        <h1>Legendary Pokémon Classifier</h1>
+        <p>Feed in your stats and let the Pokédex AI guess if your Pokémon is Legendary.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- ---------- LEFT: INPUT PANEL ---------- -->
+      <section class="panel" aria-label="Input panel">
+        <div class="panel-header">
+          <h2>Pokémon Stats</h2>
+          <span class="badge">Placeholder UI</span>
+        </div>
+
+        <!-- Name (optional) -->
+        <div class="form-group">
+          <label for="name">Pokémon Name (optional)</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="e.g. Dragonite"
+            style="width: 100%; padding: 7px 12px; border-radius: 999px; border: 1px solid #ccc; font-size: 0.85rem;"
+          />
+        </div>
+
+        <!-- Base Stats -->
+        <div class="form-group">
+          <label>Base Stats</label>
+          <div class="stat-row">
+            <input type="number" id="hp" placeholder="HP" min="1" max="255" inputmode="numeric" />
+            <input type="number" id="atk" placeholder="Attack" min="1" max="255" inputmode="numeric" />
+            <input type="number" id="def" placeholder="Defense" min="1" max="255" inputmode="numeric" />
+          </div>
+          <div class="stat-row">
+            <input type="number" id="sp_atk" placeholder="Sp. Atk" min="1" max="255" inputmode="numeric" />
+            <input type="number" id="sp_def" placeholder="Sp. Def" min="1" max="255" inputmode="numeric" />
+            <input type="number" id="spd" placeholder="Speed" min="1" max="255" inputmode="numeric" />
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="form-group" style="margin-top: 16px;">
+          <button id="predictBtn" class="btn btn-primary" style="width: 100%;">
+            <span>Predict Legendary Status</span>
+          </button>
+        </div>
+
+        <!-- Error Message Display -->
+        <div id="errorDisplay" class="error-message" style="display: none; margin-top: 12px; padding: 12px; background-color: #fee; border: 1px solid #f66; border-radius: 6px; color: #c33; font-size: 0.85rem; line-height: 1.5;">
+          <strong style="display: block; margin-bottom: 4px;">⚠️ Error</strong>
+          <span id="errorText"></span>
+        </div>
+      </section>
+
+      <!-- ---------- RIGHT: OUTPUT & TABS ---------- -->
+      <section class="output-section">
+        <!-- Tab Navigation -->
+        <div class="tabs">
+          <div class="tab active" data-tab="prediction">Prediction</div>
+          <div class="tab" data-tab="explain">Explainability</div>
+          <div class="tab" data-tab="methodology">Methodology</div>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-content active" id="tab-prediction">
+          <!-- Prediction Result Card -->
+            <div class="prediction-card" id="predictionCard">
+              <div class="prediction-header">
+                <span class="prediction-label">Result</span>
+                <span class="prediction-tag normal" id="predictionTag">Awaiting input...</span>
+              </div>
+              <div class="prob-bar-wrap">
+                <div class="prob-bar-bg">
+                  <div class="prob-bar-fill" id="probBar"></div>
+                </div>
+                <div class="prob-labels">
+                  <span id="probLegendary">Legendary: 0%</span>
+                  <span id="probNonLegendary">Non-Legendary: 0%</span>
+                </div>
+              </div>
+              
+              <!-- NEW: Confidence Indicator -->
+              <div class="confidence-indicator" id="confidenceIndicator" style="display: none;">
+                <div class="confidence-label">
+                  <span>Confidence Level:</span>
+                  <span id="confidenceLevel" class="confidence-badge">-</span>
+                </div>
+                <div class="confidence-bar">
+                  <div class="confidence-fill" id="confidenceFill"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW: Base Stat Total Card -->
+            <div class="mini-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <h3 style="color: white; margin: 0; font-size: 0.85rem;">Base Stat Total (BST)</h3>
+                  <p style="margin: 5px 0 0 0; font-size: 0.7rem; opacity: 0.9;">Sum of all base stats</p>
+                </div>
+                <div style="text-align: right;">
+                  <div id="bstValue" style="font-size: 2rem; font-weight: bold; line-height: 1;">---</div>
+                  <div id="bstCategory" style="font-size: 0.7rem; margin-top: 3px; opacity: 0.9;">Enter stats</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NEW: Stat Radar Chart -->
+            <div class="mini-card">
+              <h3>Stat Distribution</h3>
+              <canvas id="statRadarChart" width="300" height="300"></canvas>
+              <p class="placeholder-text" id="radarPlaceholder">Enter stats to visualize distribution</p>
+            </div>
+
+            <!-- NEW: Stat Breakdown Analysis -->
+            <div class="mini-card">
+              <h3>Stat Breakdown</h3>
+              <div id="statBreakdown">
+                <div class="stat-breakdown-item">
+                  <div class="stat-breakdown-label">
+                    <span>⚔️ Offensive Power</span>
+                    <span id="offensiveValue">-</span>
+                  </div>
+                  <div class="stat-breakdown-bar">
+                    <div class="stat-breakdown-fill offensive" id="offensiveFill"></div>
+                  </div>
+                </div>
+                
+                <div class="stat-breakdown-item">
+                  <div class="stat-breakdown-label">
+                    <span>🛡️ Defensive Power</span>
+                    <span id="defensiveValue">-</span>
+                  </div>
+                  <div class="stat-breakdown-bar">
+                    <div class="stat-breakdown-fill defensive" id="defensiveFill"></div>
+                  </div>
+                </div>
+                
+                <div class="stat-breakdown-item">
+                  <div class="stat-breakdown-label">
+                    <span>💨 Speed Rating</span>
+                    <span id="speedValue">-</span>
+                  </div>
+                  <div class="stat-breakdown-bar">
+                    <div class="stat-breakdown-fill speed" id="speedFill"></div>
+                  </div>
+                </div>
+                
+                <div class="stat-breakdown-item">
+                  <div class="stat-breakdown-label">
+                    <span>❤️ Bulk (HP)</span>
+                    <span id="bulkValue">-</span>
+                  </div>
+                  <div class="stat-breakdown-bar">
+                    <div class="stat-breakdown-fill bulk" id="bulkFill"></div>
+                  </div>
+                </div>
+              </div>
+              <p class="placeholder-text" style="margin-top: 10px; font-size: 0.7rem;">
+                Offensive = (Attack + Sp. Attack) / 2 | Defensive = (Defense + Sp. Defense) / 2
+              </p>
+            </div>
+
+            <!-- NEW: Comparison with Legendary/Non-Legendary Averages -->
+            <div class="mini-card">
+              <h3>Comparison to Averages</h3>
+              <div id="comparisonChart">
+                <p class="placeholder-text">Make a prediction to see comparison</p>
+              </div>
+            </div>
+
+            <!-- NEW: Similar Pokémon -->
+            <div class="mini-card">
+              <h3>Similar Pokémon</h3>
+              <div id="similarPokemon">
+                <p class="placeholder-text">Make a prediction to find similar Pokémon</p>
+              </div>
+            </div>
+
+            <!-- Updated: Legendary Threshold with more detail -->
+            <div class="mini-card">
+              <h3>Model Information</h3>
+              <div id="modelInfo">
+                <div class="model-info-row">
+                  <span class="model-info-label">Decision Threshold:</span>
+                  <span class="model-info-value">≥ 50% probability</span>
+                </div>
+                <div class="model-info-row">
+                  <span class="model-info-label">Model Type:</span>
+                  <span class="model-info-value" id="modelType">Loading...</span>
+                </div>
+                <div class="model-info-row">
+                  <span class="model-info-label">Explanation Method:</span>
+                  <span class="model-info-value" id="explanationMethod">-</span>
+                </div>
+                <div class="model-info-row">
+                  <span class="model-info-label">Training Features:</span>
+                  <span class="model-info-value">6 base stats</span>
+                </div>
+              </div>
+              <p class="placeholder-text" style="margin-top: 8px;">
+                The model analyzes stat patterns learned from 700+ Pokémon to classify legendary status.
+              </p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-explain">
+          <div class="mini-card" style="margin-bottom:10px;">
+            <h3>Global Feature Importance</h3>
+            <div id="feature-importance-chart">
+              <p class="placeholder-text">Loading feature importance...</p>
+            </div>
+          </div>
+          
+          <div class="mini-card">
+            <h3>Per-Feature Contribution</h3>
+            <div id="feature-contributions">
+              <p class="placeholder-text">Make a prediction to see feature contributions</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-methodology">
+          <!-- Overview Section -->
+          <div class="mini-card">
+            <h3>📋 Overview</h3>
+            <p>This project builds a classification model to predict whether a Pokémon is legendary based on its combat statistics and abilities. The process involved data integration from multiple sources, extensive cleaning and preprocessing, exploratory data analysis to understand key characteristics, and training an imbalanced-aware Random Forest Classifier.</p>
+          </div>
+
+          <!-- Data Sources Section -->
+          <div class="mini-card">
+            <h3>📊 Data Sources</h3>
+            <p><strong>Two datasets from KaggleHub were utilized:</strong></p>
+            <ul>
+              <li><strong>ulrikthygepedersen/pokemon-stats:</strong> Providing core combat statistics (HP, Attack, Defense, etc.), types, and legendary status.</li>
+              <li><strong>tanishksharma9905/pokemon-data-csv:</strong> Offering additional details like height, weight, and a structured 'abilities' column.</li>
+            </ul>
+          </div>
+
+          <!-- Data Cleaning & Preparation Section -->
+          <div class="mini-card">
+            <h3>🧹 Data Cleaning & Preparation</h3>
+            <ul>
+              <li><strong>Initial Loading:</strong> Both datasets were loaded into Pandas DataFrames (df_pokemon_stats and df_pokemon_data).</li>
+              <li><strong>Name Standardization:</strong> Pokémon names were standardized to lowercase (name_lower) and special characters were mapped (e.g., 'nidoran♀' to 'nidoran-f') for consistent merging.</li>
+              <li><strong>Form Filtering:</strong> Various temporary battle forms (Mega, Gigantamax, Primal) and cosmetic variants were filtered out to retain base forms and meaningful variants across both datasets, ensuring more accurate matching.</li>
+              <li><strong>Dataset Merging:</strong> The two cleaned datasets were merged using an inner join on the name_lower column. This resulted in merged_df, containing only Pokémon present in both original sources with comprehensive features.</li>
+              <li><strong>Handling Unique Rows:</strong> Pokémon present in one dataset but not the other were identified and exported to separate JSON files. These were omitted from the main analysis to maintain data completeness.</li>
+              <li><strong>Ability Column Split:</strong> The abilities column (which contained string representations of lists or comma-separated strings) was parsed into main_ability and sub_ability columns.</li>
+              <li><strong>Unit Conversion:</strong> 'height' was converted from decimeters to centimeters (multiplied by 10) and 'weight' from hectograms to grams (multiplied by 100).</li>
+              <li><strong>Unnecessary Column Removal:</strong> Columns such as name_lower, name_data, base_experience, types, moves, and stats were dropped to focus on relevant numerical and categorical features.</li>
+            </ul>
+          </div>
+
+          <!-- Exploratory Data Analysis Section -->
+          <div class="mini-card">
+            <h3>🔍 Exploratory Data Analysis (EDA)</h3>
+            <ul>
+              <li><strong>Legendary Pokémon Type Analysis:</strong> Identified Psychic, Dragon, and Steel as the most common types among legendary Pokémon.</li>
+              <li><strong>Data Imbalance Visualization:</strong> A pie chart clearly showed a significant class imbalance: approximately 92.5% Non-Legendary vs. 7.5% Legendary Pokémon.</li>
+              <li><strong>Mean Stats Comparison:</strong> Analysis confirmed that legendary Pokémon consistently have higher average combat stats across all categories compared to non-legendary Pokémon, with 'Sp. Attack' and 'Sp. Defense' showing the largest differences.</li>
+              <li><strong>Stat Distribution (Box Plots):</strong> Visualized stat distributions for both groups, reinforcing the higher stat averages for legendaries and highlighting 'Sp. Attack' and 'Sp. Defense' for their strong separation.</li>
+              <li><strong>Feature Correlation:</strong> A heatmap of combat stats showed moderate correlations, indicating features are sufficiently distinct for modeling without severe multicollinearity.</li>
+            </ul>
+          </div>
+
+          <!-- Model Training Section -->
+          <div class="mini-card">
+            <h3>🤖 Model Training</h3>
+            <ul>
+              <li><strong>Feature Scaling:</strong> Numerical features (hp, attack, defense, sp_attack, sp_defense, speed) were scaled using StandardScaler to normalize their range, resulting in X_scaled_df.</li>
+              <li><strong>Data Splitting:</strong> The dataset was split into 80% training and 20% testing sets using train_test_split with stratify=y to maintain the class ratio in both sets.</li>
+              <li><strong>Class Imbalance Handling:</strong> SMOTE (Synthetic Minority Over-sampling Technique) was applied only to the training data, creating a balanced training set with a 50/50 split of legendary and non-legendary Pokémon.</li>
+              <li><strong>Model Initialization & Training:</strong> A RandomForestClassifier was initialized with n_estimators=100, class_weight='balanced', random_state=42, and max_depth=None. The model was then fitted on the SMOTE-resampled training data.</li>
+            </ul>
+          </div>
+
+          <!-- Model Evaluation Section -->
+          <div class="mini-card">
+            <h3>📈 Model Evaluation</h3>
+            <p><strong>The Random Forest model's performance was evaluated on the unseen test data using various metrics:</strong></p>
+            <ul>
+              <li><strong>Accuracy:</strong> Achieved an overall accuracy of 94.12%.</li>
+              <li><strong>Classification Report:</strong>
+                <ul>
+                  <li>Non-Legendary: Precision 0.96, Recall 0.98, F1-score 0.97</li>
+                  <li>Legendary: Precision 0.67, Recall 0.46, F1-score 0.55</li>
+                  <li>The model is better at identifying non-legendaries than actual legendaries.</li>
+                </ul>
+              </li>
+              <li><strong>Confusion Matrix:</strong>
+                <ul>
+                  <li>True Negatives: 154 (Correctly predicted Non-Legendary)</li>
+                  <li>False Positives: 3 (Misclassified Non-Legendary as Legendary)</li>
+                  <li>False Negatives: 7 (Misclassified Legendary as Non-Legendary)</li>
+                  <li>True Positives: 6 (Correctly predicted Legendary)</li>
+                </ul>
+              </li>
+              <li><strong>AUC-ROC Score:</strong> 0.7567, indicating a fair ability to distinguish between classes.</li>
+              <li><strong>Feature Importance:</strong> The most important features identified by the model were sp_defense, hp, sp_attack, and speed.</li>
+            </ul>
+          </div>
+
+          <!-- Model Persistence Section -->
+          <div class="mini-card">
+            <h3>💾 Model Persistence</h3>
+            <p><strong>To allow for future use and reproducibility:</strong></p>
+            <ul>
+              <li>The trained RandomForestClassifier model was serialized to <code>legendary_classifier_v1.pkl</code>.</li>
+              <li>The StandardScaler used for feature scaling was serialized to <code>scaler.pkl</code>.</li>
+              <li>The SMOTE transformer was serialized to <code>smote_transformer.pkl</code>.</li>
+              <li>Detailed model metadata, including training date, hyperparameters, dataset sizes, and final evaluation metrics, was saved to <code>model_metadata.json</code>.</li>
+            </ul>
+          </div>
+
+          <!-- Key Takeaways Section -->
+          <div class="mini-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h3 style="color: white; margin-top: 0;">✨ Key Takeaways</h3>
+            <ul style="color: white;">
+              <li>Legendary Pokémon have significantly higher stat averages, especially in Special Attack and Special Defense.</li>
+              <li>The 92.5% to 7.5% class imbalance was successfully mitigated using SMOTE during training.</li>
+              <li>The model achieves 94% overall accuracy with strong non-legendary classification.</li>
+              <li>Sp. Defense, HP, Sp. Attack, and Speed are the most influential features for legendary classification.</li>
+              <li>The trained model and scalers have been persisted for reproducible predictions on new Pokémon data.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script type="module" src="js/app.js?v=2"></script>
+  <script type="module" src="js/landing.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Model files (only if > 100MB)
+# *.pkl
+# *.joblib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Specific files
+backend/generate_feature_importance.py
+test_model.py
+MODULARIZATION.md
+STRUCTURE.md
+md_files/
+
+EOF
