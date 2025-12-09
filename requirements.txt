@@ -17,6 +17,7 @@ scikit-learn
 scipy
 joblib
 shap
+dill
 
 # Utilities
 python-multipart
