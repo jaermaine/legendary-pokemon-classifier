@@ -1,17 +1,22 @@
 """Configuration and constants for the Pokemon Classifier API"""
 
 import os
+from pathlib import Path
 from typing import Dict
 
 # ============================================================================
 # MODEL AND DATA PATHS
 # ============================================================================
 
-MODEL_PATH = os.getenv("MODEL_PATH", "backend/models/legendary_classifier_v1.pkl")
-SCALER_PATH = os.getenv("SCALER_PATH", "backend/models/scaler.pkl")
-FEATURE_IMPORTANCE_PATH = os.getenv("FEATURE_IMPORTANCE_PATH", "backend/models/feature_importance.pkl")
-TRAINING_DATA_PATH = os.getenv("TRAINING_DATA_PATH", "backend/models/training_data.pkl")
-BACKGROUND_DATA_PATH = os.getenv("BACKGROUND_DATA_PATH", "background_data.pkl")
+# Get project root directory (parent of src directory)
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+
+# Use absolute paths for model files, with environment variable override
+MODEL_PATH = os.getenv("MODEL_PATH", str(PROJECT_ROOT / "backend" / "models" / "legendary_classifier_v1.pkl"))
+SCALER_PATH = os.getenv("SCALER_PATH", str(PROJECT_ROOT / "backend" / "models" / "scaler.pkl"))
+FEATURE_IMPORTANCE_PATH = os.getenv("FEATURE_IMPORTANCE_PATH", str(PROJECT_ROOT / "backend" / "models" / "feature_importance.pkl"))
+TRAINING_DATA_PATH = os.getenv("TRAINING_DATA_PATH", str(PROJECT_ROOT / "backend" / "models" / "training_data.pkl"))
+BACKGROUND_DATA_PATH = os.getenv("BACKGROUND_DATA_PATH", str(PROJECT_ROOT / "background_data.pkl"))
 
 # ============================================================================
 # FEATURE CONFIGURATION

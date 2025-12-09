@@ -1,37 +1,153 @@
+# ============================================================================
 # Python
+# ============================================================================
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+.installed.cfg
+
+# Virtual Environments
 env/
 venv/
 ENV/
+.venv/
 
-# Model files (only if > 100MB)
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# Type Checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# ============================================================================
+# Model Files (uncomment if models are > 100MB)
+# ============================================================================
 # *.pkl
 # *.joblib
 
-# IDE
+# ============================================================================
+# IDE & Editor Files
+# ============================================================================
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.spyderproject
+.spyproject
+.ropeproject
 
-# OS
+# ============================================================================
+# OS Files
+# ============================================================================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+Desktop.ini
 
+# ============================================================================
 # Logs
+# ============================================================================
 *.log
+*.log.*
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Environment variables
+# ============================================================================
+# Environment Variables & Secrets
+# ============================================================================
 .env
+.env.local
+.env.*.local
+*.env
 
-# Specific files
-backend/generate_feature_importance.py
-test_model.py
+# ============================================================================
+# Documentation Files (except README.md)
+# ============================================================================
+*.md
+!README.md
+
+# Specific documentation files (explicitly listed for clarity)
+DEPLOYMENT_GUIDE.md
+DEPLOYMENT_CHECKLIST.md
+QUICK_START_DEPLOYMENT.md
 MODULARIZATION.md
 STRUCTURE.md
 md_files/
+backend/generate_feature_importance.py
+test_model.py
 
-EOF
+# ============================================================================
+# Deployment Platforms
+# ============================================================================
+.vercel
+.netlify/
+
+# ============================================================================
+# Temporary & Backup Files
+# ============================================================================
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ============================================================================
+# Node Modules (if using any Node.js tools)
+# ============================================================================
+node_modules/
+
+# ============================================================================
+# Build & Distribution
+# ============================================================================
+/site

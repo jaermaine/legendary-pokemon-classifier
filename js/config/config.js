@@ -2,8 +2,19 @@
 // CONFIGURATION MODULE
 // ============================================================================
 
+// Get API URL from window object (injected by index.html script tag)
+// Falls back to localhost for local development
+const getApiBaseUrl = () => {
+    // Check for globally injected API URL (set by index.html)
+    if (typeof window !== 'undefined' && window.API_BASE_URL) {
+        return window.API_BASE_URL;
+    }
+    // Default to localhost for local development
+    return 'http://localhost:8000';
+};
+
 export const CONFIG = {
-    API_BASE_URL: 'http://localhost:8000',
+    API_BASE_URL: getApiBaseUrl(),
     STAT_MAX: 255,
     STAT_MIN: 1,
     BST_LEGENDARY_THRESHOLD: 600,
