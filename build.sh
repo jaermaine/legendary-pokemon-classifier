@@ -14,6 +14,7 @@ echo "📥 Installing dependencies..."
 echo "   Strategy: Use pre-built wheels to avoid compilation (Python 3.13 compatible)"
 echo "   - pandas>=2.2.3 has pre-built wheels for Python 3.13"
 echo "   - scikit-learn>=1.4.0 has pre-built wheels for Python 3.13"
+echo "   - pydantic>=2.6.0 has pre-built wheels for Python 3.13 (avoids Rust compilation)"
 echo "   - All dependencies updated for Python 3.13 compatibility"
 
 # Install with preference for binary wheels
