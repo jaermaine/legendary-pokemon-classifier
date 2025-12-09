@@ -7,9 +7,12 @@
 const getApiBaseUrl = () => {
     // Check for globally injected API URL (set by index.html)
     if (typeof window !== 'undefined' && window.API_BASE_URL) {
-        return window.API_BASE_URL;
+        // If it's not the placeholder, use it
+        if (window.API_BASE_URL && window.API_BASE_URL !== 'REPLACE_WITH_RENDER_URL') {
+            return window.API_BASE_URL;
+        }
     }
-    // Default to localhost for local development
+    // Default to Render backend for production
     return 'https://legendary-pokemon-classifier.onrender.com';
 };
 
@@ -35,3 +38,4 @@ export const STAT_NAMES = {
 };
 
 export const STAT_INPUTS = ['hp', 'atk', 'def', 'sp_atk', 'sp_def', 'spd'];
+

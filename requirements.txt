@@ -1,11 +1,19 @@
-fastapi==0.104.1
-uvicorn==0.24.0
-joblib>=1.3.2
-numpy>=1.26.0
-pandas>=2.2.3
-scikit-learn>=1.4.0
-scipy>=1.11.0
-pydantic>=2.6.0
-python-multipart==0.0.6
-gunicorn==21.2.0
-shap>=0.45.0
+# Unpinned versions - let pip choose latest compatible versions with Python 3.13 wheels
+# This eliminates build errors by automatically selecting versions with pre-built wheels
+
+# Core web framework
+fastapi
+uvicorn
+pydantic
+
+# Machine learning libraries
+numpy
+pandas
+scikit-learn
+scipy
+joblib
+shap
+
+# Server and utilities
+gunicorn
+python-multipart

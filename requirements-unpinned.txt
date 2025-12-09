@@ -1,0 +1,20 @@
+# Unpinned requirements - let pip choose latest compatible versions
+# This ensures Python 3.13 compatibility with pre-built wheels
+
+# Core web framework
+fastapi
+uvicorn
+pydantic
+
+# Machine learning libraries
+numpy
+pandas
+scikit-learn
+scipy
+joblib
+shap
+
+# Server and utilities
+gunicorn
+python-multipart
+

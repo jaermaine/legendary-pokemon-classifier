@@ -35,7 +35,7 @@ app = FastAPI(
     version=API_VERSION
 )
 
-# Add CORS middleware
+# Add CORS middleware FIRST to handle OPTIONS requests properly
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
