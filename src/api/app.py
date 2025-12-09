@@ -32,7 +32,8 @@ from src.api.routes.predict import router, set_state
 app = FastAPI(
     title=API_TITLE,
     description=API_DESCRIPTION,
-    version=API_VERSION
+    version=API_VERSION,
+    lifespan=None  # Explicitly disable lifespan for gunicorn compatibility
 )
 
 # Add CORS middleware FIRST to handle OPTIONS requests properly

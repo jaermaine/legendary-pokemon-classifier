@@ -3,8 +3,12 @@
 
 # Core web framework
 fastapi
-uvicorn
 pydantic
+
+# ASGI Server - must be installed with gunicorn to enable UvicornWorker
+# Using gunicorn[uvicorn] installs both gunicorn AND uvicorn with proper integration
+uvicorn
+gunicorn[uvicorn]
 
 # Machine learning libraries
 numpy
@@ -14,7 +18,6 @@ scipy
 joblib
 shap
 
-# Server and utilities
-gunicorn
+# Utilities
 python-multipart
 
