@@ -1,0 +1,15 @@
+# Render Configuration File
+# This file helps Render understand your project setup
+
+services:
+  - type: web
+    name: pokemon-classifier-api
+    runtime: python
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: gunicorn api.app:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT --timeout 120
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.7
+      - key: PIP_PREFER_BINARY
+        value: "1"
+
