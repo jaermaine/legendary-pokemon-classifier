@@ -10,7 +10,7 @@ const getApiBaseUrl = () => {
         return window.API_BASE_URL;
     }
     // Default to localhost for local development
-    return 'http://localhost:8000';
+    return 'https://legendary-pokemon-classifier.onrender.com';
 };
 
 export const CONFIG = {
