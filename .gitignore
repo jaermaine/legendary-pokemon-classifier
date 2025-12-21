@@ -151,3 +151,6 @@ node_modules/
 # Build & Distribution
 # ============================================================================
 /site
+lighthouse_new_report.json
+lighthouse_report.json
+lighthouse_summary.pdf
