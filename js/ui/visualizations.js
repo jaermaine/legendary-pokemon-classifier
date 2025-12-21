@@ -27,7 +27,7 @@ export async function loadChartJS() {
     });
 }
 
-export function updateRadarChart(hp, atk, def, spAtk, spDef, spd) {
+export async function updateRadarChart(hp, atk, def, spAtk, spDef, spd) {
     const canvas = document.getElementById('statRadarChart');
     const placeholder = document.getElementById('radarPlaceholder');
     
@@ -46,9 +46,15 @@ export function updateRadarChart(hp, atk, def, spAtk, spDef, spd) {
     canvas.style.display = 'block';
     placeholder.style.display = 'none';
     
+    // Lazy load Chart.js when first needed
     if (typeof Chart === 'undefined') {
-        console.warn('Chart.js not loaded');
-        return;
+        console.log('📦 Lazy loading Chart.js...');
+        try {
+            await loadChartJS();
+        } catch (error) {
+            console.warn('⚠️ Failed to load Chart.js:', error);
+            return;
+        }
     }
     
     const ctx = canvas.getContext('2d');

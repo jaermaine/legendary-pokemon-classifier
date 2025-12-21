@@ -3,6 +3,10 @@
 // ============================================================================
 
 import { getTabs, getTabContents } from '../dom/domElements.js';
+import { fetchFeatureImportance } from '../api/api.js';
+import { renderFeatureImportanceChart } from '../ui/visualizations.js';
+
+let featureImportanceLoaded = false;
 
 export function initializeTabs() {
     const tabs = getTabs();
@@ -11,7 +15,7 @@ export function initializeTabs() {
     console.log('🔖 Initializing tabs...', { tabs: tabs.length, contents });
     
     tabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
+        tab.addEventListener("click", async () => {
             console.log('📑 Tab clicked:', tab.dataset.tab);
             tabs.forEach((t) => t.classList.remove("active"));
             tab.classList.add("active");
@@ -27,6 +31,20 @@ export function initializeTabs() {
                     console.warn(`⚠️ Missing content element for key: ${key}`);
                 }
             });
+            
+            // Lazy load feature importance when Explainability tab is first opened
+            if (name === 'explain' && !featureImportanceLoaded) {
+                console.log('📊 Loading feature importance data...');
+                featureImportanceLoaded = true;
+                try {
+                    const importanceData = await fetchFeatureImportance();
+                    if (importanceData) {
+                        renderFeatureImportanceChart(importanceData);
+                    }
+                } catch (error) {
+                    console.warn('⚠️ Failed to load feature importance:', error);
+                }
+            }
         });
     });
 }

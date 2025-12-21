@@ -12,12 +12,8 @@ import { updateBadgeStatus } from './ui/notifications.js';
 async function initializeApp() {
     console.log('🎮 Legendary Pokémon Classifier initializing...');
     
-    try {
-        // Load Chart.js library
-        await loadChartJS();
-    } catch (error) {
-        console.warn('⚠️ Radar chart will be disabled:', error);
-    }
+    // Chart.js will be loaded lazily when needed (when user enters stats or views charts)
+    // This reduces initial bundle size by ~62 KiB
     
     // Initialize input validation
     initializeInputValidation();
@@ -35,11 +31,8 @@ async function initializeApp() {
     if (isConnected) {
         console.log('✅ Connected to FastAPI server');
         
-        // Load feature importance
-        const importanceData = await fetchFeatureImportance();
-        if (importanceData) {
-            renderFeatureImportanceChart(importanceData);
-        }
+        // Feature importance will be loaded when user switches to Explainability tab
+        // This defers Chart.js loading until actually needed
     } else {
         console.warn('⚠️ FastAPI server not running');
     }

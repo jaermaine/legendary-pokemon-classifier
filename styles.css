@@ -386,8 +386,9 @@ select:focus {
 
 .placeholder-text {
   font-size: 0.85rem;
-  color: #333;
+  color: #1a1a1a;
   font-style: italic;
+  font-weight: 600;
 }
 
 .grid-two {
@@ -397,13 +398,15 @@ select:focus {
 }
 
 .mini-card {
-  background: #f0f2ff;
+  background: #ffffff;
   border-radius: 12px;
   padding: 10px 12px;
-  border: 1px solid #dde2ff;
+  border: 1px solid #d0d5ff;
   font-size: 0.8rem;
   margin-bottom: 10px; /* Add spacing */
   color: #1a1a1a;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .mini-card h3 {
