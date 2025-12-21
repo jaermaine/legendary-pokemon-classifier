@@ -1,0 +1,21 @@
+# robots.txt for Legendary Pokémon Classifier
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual sitemap URL when available)
+# Sitemap: https://legendary-pokemon-classifier.netlify.app/sitemap.xml
+
+# Crawl-delay (optional - use if needed to prevent overloading)
+# Crawl-delay: 1
+
+# Disallow crawling of API endpoints to prevent unnecessary load
+Disallow: /api/
+Disallow: /_netlify/
+
+# Allow crawling of main pages
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /images/

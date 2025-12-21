@@ -10,10 +10,18 @@
   # VITE_API_BASE_URL = "https://your-render-app.onrender.com"
 
 [[redirects]]
-  # Handle client-side routing
+  # Ensure robots.txt is served correctly
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  # Handle client-side routing (but not for static files)
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Headers for security and CORS
 [[headers]]
@@ -23,4 +31,12 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    # Content Security Policy (CSP) for XSS protection
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+    # Cross-Origin Opener Policy for origin isolation
+    Cross-Origin-Opener-Policy = "same-origin"
+    # Cross-Origin Resource Policy
+    Cross-Origin-Resource-Policy = "cross-origin"
+    # Permissions Policy (formerly Feature-Policy)
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 

@@ -14,6 +14,12 @@
   <meta property="og:description" content="ML-powered prediction with SHAP explanations and interactive visualizations" />
   <meta property="og:type" content="website" />
   
+  <!-- Performance: Preconnect to external resources -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://legendary-pokemon-classifier.onrender.com" crossorigin>
+  <link rel="dns-prefetch" href="https://legendary-pokemon-classifier.onrender.com">
+  
   <!-- API Configuration: Set your Render backend URL here -->
   <!-- For local development: Use http://localhost:8000 -->
   <!-- For production: Replace with your Render URL (e.g., https://your-app.onrender.com) -->
@@ -28,7 +34,7 @@
   <nav id="stickyNav" class="sticky-nav" data-section="navigation">
     <div class="nav-container">
       <div class="nav-brand">
-        <img src="images/logo/pokeball_logo.png" alt="Pokéball" class="nav-logo" />
+        <img src="images/logo/pokeball_logo.png" alt="Pokéball" class="nav-logo" width="32" height="32" loading="lazy" />
         <span class="nav-title">Pokémon Classifier</span>
       </div>
       <div class="nav-links">
@@ -186,7 +192,7 @@
     <div class="dashboard-wrapper">
     <!-- ---------- HEADER ---------- -->
     <header>
-      <img src="images/logo/pokeball_logo.png" alt="Pokéball" class="pokeball-icon" />
+      <img src="images/logo/pokeball_logo.png" alt="Pokéball" class="pokeball-icon" width="48" height="48" loading="lazy" />
       <div class="title-block">
         <h1>Legendary Pokémon Classifier</h1>
         <p>Feed in your stats and let the Pokédex AI guess if your Pokémon is Legendary.</p>

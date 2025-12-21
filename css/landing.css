@@ -178,8 +178,8 @@
   justify-content: center;
   gap: 8px;
   padding: 16px 40px;
-  background: linear-gradient(135deg, var(--red), var(--dark-red));
-  color: white;
+  background: linear-gradient(135deg, #c71f1f, #9a0000);
+  color: #ffffff;
   border: none;
   border-radius: 50px;
   font-size: 1rem;
@@ -188,7 +188,7 @@
   letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(255, 28, 28, 0.3);
+  box-shadow: 0 6px 20px rgba(199, 31, 31, 0.3);
   text-decoration: none;
   position: relative;
   overflow: hidden;
@@ -196,7 +196,8 @@
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(255, 28, 28, 0.4);
+  box-shadow: 0 10px 30px rgba(199, 31, 31, 0.4);
+  background: linear-gradient(135deg, #b01b1b, #850000);
 }
 
 .cta-button:active {
@@ -483,14 +484,14 @@
 .cta-large {
   font-size: 1.1rem;
   padding: 18px 48px;
-  background: var(--red);
-  box-shadow: 0 8px 25px rgba(255, 28, 28, 0.4);
+  background: linear-gradient(135deg, #c71f1f, #9a0000);
+  box-shadow: 0 8px 25px rgba(199, 31, 31, 0.4);
 }
 
 .cta-large:hover {
-  background: var(--dark-red);
+  background: linear-gradient(135deg, #b01b1b, #850000);
   transform: translateY(-4px);
-  box-shadow: 0 12px 35px rgba(255, 28, 28, 0.5);
+  box-shadow: 0 12px 35px rgba(199, 31, 31, 0.5);
 }
 
 /* Dashboard Section */
