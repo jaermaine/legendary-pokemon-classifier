@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Security Headers (fallback for meta tags) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://legendary-pokemon-classifier.netlify.app; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net https://ingesteer.services-prod.nsvcs.net https://*.nsvcs.net; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   
   <title>Legendary Pokémon Classifier - ML-Powered Prediction</title>
   <link rel="icon" type="image/png" href="images/logo/pokeball-favicon.png" />
+  
+  <!-- Preload critical CSS for faster rendering -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="css/landing.css" as="style">
+  
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="css/landing.css" />
   
@@ -549,6 +554,8 @@
     </svg>
   </button>
 
+  <!-- Load logger first for production console suppression -->
+  <script type="module" src="js/utils/logger.js"></script>
   <script type="module" src="js/app.js?v=2"></script>
   <script type="module" src="js/landing.js?v=2"></script>
 </body>

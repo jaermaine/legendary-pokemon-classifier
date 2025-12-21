@@ -2,13 +2,14 @@
 // CHARTS & VISUALIZATIONS MODULE
 // ============================================================================
 
+import { logger } from '../utils/logger.js';
 import { CONFIG, STAT_NAMES } from '../config/config.js';
 
 let radarChart = null;
 
 export async function loadChartJS() {
     if (typeof Chart !== 'undefined') {
-        console.log('✅ Chart.js already loaded');
+        logger.log('✅ Chart.js already loaded');
         return Promise.resolve();
     }
     
@@ -16,11 +17,11 @@ export async function loadChartJS() {
         const script = document.createElement('script');
         script.src = CONFIG.CHART_JS_CDN;
         script.onload = () => {
-            console.log('✅ Chart.js loaded');
+            logger.log('✅ Chart.js loaded');
             resolve();
         };
         script.onerror = () => {
-            console.warn('⚠️ Failed to load Chart.js');
+            logger.warn('⚠️ Failed to load Chart.js');
             reject();
         };
         document.head.appendChild(script);
@@ -48,11 +49,11 @@ export async function updateRadarChart(hp, atk, def, spAtk, spDef, spd) {
     
     // Lazy load Chart.js when first needed
     if (typeof Chart === 'undefined') {
-        console.log('📦 Lazy loading Chart.js...');
+        logger.log('📦 Lazy loading Chart.js...');
         try {
             await loadChartJS();
         } catch (error) {
-            console.warn('⚠️ Failed to load Chart.js:', error);
+            logger.warn('⚠️ Failed to load Chart.js:', error);
             return;
         }
     }

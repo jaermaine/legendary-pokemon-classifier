@@ -2,6 +2,7 @@
 // ERROR HANDLING & NOTIFICATIONS MODULE
 // ============================================================================
 
+import { logger } from '../utils/logger.js';
 import { getErrorDisplay, elements, getBadge } from '../dom/domElements.js';
 
 export function showError(message) {
@@ -9,7 +10,7 @@ export function showError(message) {
     const formattedMessage = message.replace(/\n/g, '<br>');
     errorDisplay.text.innerHTML = formattedMessage;
     errorDisplay.container.style.display = 'block';
-    console.error(message);
+    logger.error(message);
 }
 
 export function clearError() {

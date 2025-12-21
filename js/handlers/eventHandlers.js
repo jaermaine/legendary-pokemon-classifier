@@ -2,6 +2,7 @@
 // EVENT HANDLERS MODULE
 // ============================================================================
 
+import { logger } from '../utils/logger.js';
 import { elements, getNumberInputs } from '../dom/domElements.js';
 import { validateInputs, getStatInputs as getValidatedStats } from '../utils/validation.js';
 import { predictLegendary, fetchFeatureImportance, getSimilarPokemon } from '../api/api.js';
@@ -40,7 +41,7 @@ export async function handlePredict() {
         
         renderFeatureContributions(result.feature_contributions, result.explanation_method);
         
-        console.log('Prediction Result:', result);
+        logger.log('Prediction Result:', result);
         
     } catch (error) {
         showError(error.message);

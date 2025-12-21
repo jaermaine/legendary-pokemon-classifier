@@ -2,6 +2,7 @@
 // MAIN APP INITIALIZATION
 // ============================================================================
 
+import { logger } from './utils/logger.js';
 import { initializeInputValidation } from './utils/validation.js';
 import { initializeTabs } from './handlers/tabs.js';
 import { initializeEventListeners } from './handlers/eventHandlers.js';
@@ -10,7 +11,7 @@ import { checkHealthStatus, fetchFeatureImportance } from './api/api.js';
 import { updateBadgeStatus } from './ui/notifications.js';
 
 async function initializeApp() {
-    console.log('🎮 Legendary Pokémon Classifier initializing...');
+    logger.log('🎮 Legendary Pokémon Classifier initializing...');
     
     // Chart.js will be loaded lazily when needed (when user enters stats or views charts)
     // This reduces initial bundle size by ~62 KiB
@@ -29,16 +30,16 @@ async function initializeApp() {
     updateBadgeStatus(isConnected);
     
     if (isConnected) {
-        console.log('✅ Connected to FastAPI server');
+        logger.log('✅ Connected to FastAPI server');
         
         // Feature importance will be loaded when user switches to Explainability tab
         // This defers Chart.js loading until actually needed
     } else {
-        console.warn('⚠️ FastAPI server not running');
+        logger.warn('⚠️ FastAPI server not running');
     }
     
-    console.log('🎮 App initialized successfully!');
-    console.log('📡 API URL: http://localhost:8000');
+    logger.log('🎮 App initialized successfully!');
+    logger.log('📡 API URL:', window.API_BASE_URL || 'Not configured');
 }
 
 // Smooth scroll to section

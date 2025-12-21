@@ -2,6 +2,8 @@
 // LANDING PAGE FUNCTIONALITY
 // ============================================================================
 
+import { logger } from './utils/logger.js';
+
 /**
  * Initialize smooth scrolling for CTA buttons and navigation
  */
@@ -326,7 +328,7 @@ function initializeParallax() {
  * Initialize all landing page features
  */
 export function initializeLandingPage() {
-  console.log('🚀 Initializing landing page features...');
+  logger.log('🚀 Initializing landing page features...');
   
   initializeSmoothScrolling();
   initializeStickyNavigation();
@@ -341,7 +343,7 @@ export function initializeLandingPage() {
   initializeScrollMargins();
   initializeParallax();
   
-  console.log('✅ Landing page features initialized!');
+  logger.log('✅ Landing page features initialized!');
 }
 
 // Initialize when DOM is ready

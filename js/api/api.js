@@ -2,6 +2,7 @@
 // API COMMUNICATION MODULE
 // ============================================================================
 
+import { logger } from '../utils/logger.js';
 import { CONFIG } from '../config/config.js';
 
 export async function predictLegendary(stats) {
@@ -35,7 +36,7 @@ export async function fetchFeatureImportance() {
         if (!response.ok) throw new Error('Failed to fetch feature importance');
         return await response.json();
     } catch (error) {
-        console.error('Error loading feature importance:', error);
+        logger.error('Error loading feature importance:', error);
         return null;
     }
 }
@@ -45,7 +46,7 @@ export async function checkHealthStatus() {
         const response = await fetch(`${CONFIG.API_BASE_URL}/health`);
         return response.ok;
     } catch (error) {
-        console.warn('⚠️ FastAPI server not running');
+        logger.warn('⚠️ FastAPI server not running');
         return false;
     }
 }
@@ -62,7 +63,7 @@ export async function getSimilarPokemon(stats) {
             return await response.json();
         }
     } catch (error) {
-        console.warn('Could not fetch similar Pokémon:', error);
+        logger.warn('Could not fetch similar Pokémon:', error);
     }
     
     return null;
