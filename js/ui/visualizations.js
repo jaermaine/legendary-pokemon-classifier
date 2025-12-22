@@ -71,13 +71,17 @@ export async function updateRadarChart(hp, atk, def, spAtk, spDef, spd) {
             datasets: [{
                 label: 'Current Stats',
                 data: [hp, atk, def, spAtk, spDef, spd],
-                backgroundColor: 'rgba(139, 92, 246, 0.2)',
-                borderColor: 'rgba(139, 92, 246, 1)',
-                borderWidth: 2,
-                pointBackgroundColor: 'rgba(139, 92, 246, 1)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(139, 92, 246, 1)'
+                backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                borderColor: '#8B5CF6',
+                borderWidth: 3,
+                pointBackgroundColor: '#D4AF37',
+                pointBorderColor: '#0F172A',
+                pointBorderWidth: 2,
+                pointRadius: 6,
+                pointHoverBackgroundColor: '#E5C158',
+                pointHoverBorderColor: '#D4AF37',
+                pointHoverRadius: 8,
+                pointHoverBorderWidth: 3
             }]
         },
         options: {
@@ -89,15 +93,53 @@ export async function updateRadarChart(hp, atk, def, spAtk, spDef, spd) {
                     max: 255,
                     ticks: {
                         stepSize: 50,
-                        font: { size: 10 }
+                        font: { 
+                            size: 10,
+                            family: "'JetBrains Mono', monospace"
+                        },
+                        color: '#64748B',
+                        backdropColor: 'transparent'
+                    },
+                    grid: {
+                        color: 'rgba(75, 85, 99, 0.3)',
+                        lineWidth: 1
+                    },
+                    angleLines: {
+                        color: 'rgba(139, 92, 246, 0.2)',
+                        lineWidth: 1
                     },
                     pointLabels: {
-                        font: { size: 11, weight: 'bold' }
+                        font: { 
+                            size: 12, 
+                            weight: 'bold',
+                            family: "'Bebas Neue', sans-serif"
+                        },
+                        color: '#D4AF37'
                     }
                 }
             },
             plugins: {
-                legend: { display: false }
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1E293B',
+                    titleColor: '#D4AF37',
+                    bodyColor: '#E5E7EB',
+                    borderColor: '#8B5CF6',
+                    borderWidth: 2,
+                    padding: 12,
+                    titleFont: {
+                        family: "'Bebas Neue', sans-serif",
+                        size: 14
+                    },
+                    bodyFont: {
+                        family: "'JetBrains Mono', monospace",
+                        size: 11
+                    }
+                }
+            },
+            animation: {
+                duration: 1000,
+                easing: 'easeOutQuart'
             }
         }
     });

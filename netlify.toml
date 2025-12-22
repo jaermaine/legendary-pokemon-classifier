@@ -31,8 +31,15 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    # Content Security Policy (CSP) for XSS protection - includes Netlify services
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.netlify.app; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net https://ingesteer.services-prod.nsvcs.net https://*.nsvcs.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+    # Content Security Policy (CSP) - Balanced security approach
+    # script-src: STRICT - No inline scripts allowed (primary XSS protection)
+    # style-src: 'unsafe-inline' allows inline styles (CSS injection low risk, no code execution)
+    # img-src: Restricted to self and data: URIs only
+    # font-src: Allows self, data:, and Google Fonts CDN
+    # connect-src: Localhost for dev, Render API, CDN, and Netlify analytics
+    # report-uri: CSP violation reporting endpoint (implement in backend)
+    # Security trade-off: CSS injection possible but cannot execute JavaScript
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://*.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' http://localhost:8000 http://127.0.0.1:8000 https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net https://ingesteer.services-prod.nsvcs.net https://*.nsvcs.net; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; report-uri /api/csp-report;"
     # Cross-Origin Opener Policy for origin isolation
     Cross-Origin-Opener-Policy = "same-origin"
     # Cross-Origin Resource Policy

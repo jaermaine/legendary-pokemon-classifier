@@ -2,17 +2,15 @@
 // CONFIGURATION MODULE
 // ============================================================================
 
-// Get API URL from window object (injected by index.html script tag)
-// Falls back to localhost for local development
+// Get API URL from window object (injected by api-config.js)
+// The API_BASE_URL is now set externally for CSP compliance
 const getApiBaseUrl = () => {
-    // Check for globally injected API URL (set by index.html)
+    // api-config.js sets window.API_BASE_URL before this module loads
     if (typeof window !== 'undefined' && window.API_BASE_URL) {
-        // If it's not the placeholder, use it
-        if (window.API_BASE_URL && window.API_BASE_URL !== 'REPLACE_WITH_RENDER_URL') {
-            return window.API_BASE_URL;
-        }
+        return window.API_BASE_URL;
     }
-    // Default to Render backend for production
+    // Fallback (should never reach here if api-config.js loads correctly)
+    console.error('⚠️ API_BASE_URL not set by api-config.js');
     return 'https://legendary-pokemon-classifier.onrender.com';
 };
 

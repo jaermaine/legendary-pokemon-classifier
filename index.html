@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Security Headers (fallback for meta tags) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://legendary-pokemon-classifier.netlify.app; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net https://ingesteer.services-prod.nsvcs.net https://*.nsvcs.net; base-uri 'self'; form-action 'self';">
+  <!-- Note: frame-ancestors and report-uri only work in HTTP headers (see netlify.toml) -->
+  <!-- style-src uses 'unsafe-inline' (CSS injection low risk), script-src remains strict (XSS protected) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://legendary-pokemon-classifier.netlify.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' http://localhost:8000 http://127.0.0.1:8000 https://legendary-pokemon-classifier.onrender.com https://cdn.jsdelivr.net https://ingesteer.services-prod.nsvcs.net https://*.nsvcs.net; base-uri 'self'; form-action 'self';">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   
   <title>Legendary Pokémon Classifier - ML-Powered Prediction</title>
   <link rel="icon" type="image/png" href="images/logo/pokeball-favicon.png" />
+  
+  <!-- Google Fonts for Pokédex Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Preload critical CSS for faster rendering -->
   <link rel="preload" href="styles.css" as="style">
@@ -30,14 +37,9 @@
   <link rel="preconnect" href="https://legendary-pokemon-classifier.onrender.com" crossorigin>
   <link rel="dns-prefetch" href="https://legendary-pokemon-classifier.onrender.com">
   
-  <!-- API Configuration: Set your Render backend URL here -->
-  <!-- For local development: Use http://localhost:8000 -->
-  <!-- For production: Replace with your Render URL (e.g., https://your-app.onrender.com) -->
-  <script>
-    // API Base URL - Update this with your Render backend URL after deployment
-    // This will be automatically set by Netlify build script if VITE_API_BASE_URL is set
-    window.API_BASE_URL = 'REPLACE_WITH_RENDER_URL' || 'http://localhost:8000';
-  </script>
+  <!-- API Configuration: External file for CSP compliance -->
+  <!-- Build-time injection handled by netlify-build.sh -->
+  <script src="js/config/api-config.js"></script>
 </head>
 <body>
   <!-- Sticky Navigation Bar (initially hidden) -->
